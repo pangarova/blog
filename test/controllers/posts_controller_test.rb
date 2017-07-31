@@ -1,18 +1,22 @@
 require 'test_helper'
 
 class PostsControllerTest < ActionDispatch::IntegrationTest
+  # setup is executed before every test run
   setup do
     @post = posts(:one)
   end
 
   test "should get index" do
     get posts_url
+
     assert_response :success
   end
 
   test "should get new" do
     get new_post_url
+
     assert_response :success
+    # assert assigns(:@posts), [p1, p2, p3]
   end
 
   test "should create post" do
@@ -25,11 +29,13 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
 
   test "should show post" do
     get post_url(@post)
+
     assert_response :success
   end
 
   test "should get edit" do
     get edit_post_url(@post)
+
     assert_response :success
   end
 
